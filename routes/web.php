@@ -16,3 +16,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/base', function () {
+	$tasks = DB::table('users')->get();
+    return view('base', compact('tasks'));
+});
