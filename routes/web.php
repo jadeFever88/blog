@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UsersController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,7 +18,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/base', function () {
-	$tasks = DB::table('users')->get();
-    return view('base', compact('tasks'));
-});
+Route::get('/home', [UsersController::class, 'index'])->name('home');
